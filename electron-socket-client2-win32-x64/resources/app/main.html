@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <link rel="stylesheet" href="stylesheets/init.css">
+    <link rel="stylesheet" href="stylesheets/roomArea.css">
+    <link rel="stylesheet" href="stylesheets/roomMenuArea.css">
+    <link rel="stylesheet" href="stylesheets/chatArea.css">
+    <link rel="stylesheet" href="stylesheets/DialogWrapper.css">
+    <link rel="stylesheet" href="stylesheets/InviteRoomDialog.css">
+    <link rel="stylesheet" href="stylesheets/DialogButton.css">
+    <link rel="stylesheet" href="stylesheets/LeaveRoomDialog.css">
+    <link rel="stylesheet" href="stylesheets/CreateRoomDialog.css">
+    <link rel="stylesheet" href="stylesheets/FriendMenuDialog.css">
+    <link rel="stylesheet" href="stylesheets/AddFriendDialog.css">
+    <link rel="stylesheet" href="stylesheets/ElementLoader.css">
+    <link rel="stylesheet" href="stylesheets/ListFriendDialog.css">
+    <link rel="stylesheet" href="stylesheets/ListFriendRequestDialog.css">
+    <link rel="stylesheet" href="stylesheets/RefreshTokenDialog.css">
+
+    <title>FirstExample.</title>
+</head>
+<body>
+    <div class="roomArea" id="roomArea">
+        <div class="profile" id="profile"></div>
+        <div class="openFriendMenuButton" id="openFriendMenuButton">freind menu</div>
+        <ul class="roomList" id="roomList"></ul>
+        <div class="createRoomButton" id="createRoomButton">create room</div>
+    </div>
+    <div class="roomMenuArea">
+        <ul class="roomMenu" id="roomMenu">
+            <li><div class="button" id="inviteRoomButton">invite</div></li>
+            <li><div class="button" id="leaveRoomButton">leave</div></li>
+        </ul>
+    </div>
+    <div class="chatAreaWrapper">
+        <div class="chatArea">
+            <ul class="messageList" id="messageList">
+                <li class="messageElement" id="object1">
+                    <div>
+                        <p class="messageElementProfile">dyonglove@gmail.com</p>
+                        <p class="messageElementDate">2021-08-27 16:24:24</p>
+                        <div class="messageElementReSendButton">resend</div>
+                        <p class="messageContent">hello, first message</p>
+                    </div>
+                </li>
+                <li class="messageElement" id="object2">
+                    <div>
+                        <p class="messageElementProfile">dyonglove@gmail.com</p>
+                        <p class="messageElementDate">2021-08-27 16:33:24</p>
+                        <div class="messageElementReSendButton">resend</div>
+                        <p class="messageContent">hello, second message</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="chatAreaInputWrapper">
+                <textarea class="messageTextArea" placeholder="input message" id="messageTextArea"></textarea>
+                <div class="sendMessageButton" id="sendMessageButton">send</div>
+            </div>
+        </div>
+        <div class="DialogWrapper" id="inviteRoomDialogWrapper">
+            <div class="inviteRoomDialog">
+                <p>input user id for inviting</p>
+                <input type="email" placeholder="example@example.com" id="input-userId">
+                <div class="Dialog-button confirmButton" id="inviteConfirmButton">confirm</div>
+                <div class="Dialog-button cancelButton" id="inviteCancelButton">cancel</div>
+            </div>
+        </div>
+        <div class="DialogWrapper" id="leaveRoomDialogWrapper">
+            <div class="leaveRoomDialog">
+                <p>leave room?</p>
+                <div class="Dialog-button confirmButton" id="leaveConfirmButton">confirm</div>
+                <div class="Dialog-button cancelButton" id="leaveCancelButton">cancel</div>
+            </div>
+        </div>
+        <div class="DialogWrapper" id="createRoomDialogWrapper">
+            <div class="createRoomDialog">
+                <p>input room name for creating</p>
+                <input type="text" placeholder="input room name" id="input-roomName">
+                <div class="Dialog-button confirmButton" id="createConfirmButton">confirm</div>
+                <div class="Dialog-button cancelButton" id="createCancelButton">cancel</div>
+            </div>
+        </div>
+        <div class="DialogWrapper" id="friendMenuDialogWrapper">
+            <div class="friendMenuDialog">
+                <p>friend function</p>
+                <ul class="friendMenuList" id="friendMenuList">
+                    <li class="friendMenu" id="addFriend">add friend</li>
+                    <li class="friendMenu" id="showFriends">friend list</li>
+                    <li class="friendMenu" id="requestFriend">request friend</li>
+                </ul>
+                <div class="friendMenuDialog-button" id="closeFriendMenuDialogButton">cancel</div>
+            </div>
+        </div>
+        <div class="DialogWrapper depth2" id="addFriendDialogWrapper">
+            <div class="addFriendDialog">
+                <p class="addFriendDialog-title">add friend</p>
+                <input type="text" placeholder="input friend id" id="input-friendId">
+                <div class="searchUserButton" id="searchUserButton">Search</div>
+                <div class="searchUserResult">
+                    <p id="searchUserResult">there is not search result</p>
+                    <div class="addElementLoader" id="addElementLoader"></div>
+                </div>
+                <div class="Dialog-button confirmButton" id="addFriendConfirmButton">request</div>
+                <div class="Dialog-button cancelButton" id="addFriendCancelButton">cancel</div>
+            </div>
+        </div>
+        <div class="DialogWrapper depth2" id="listFriendDialogWrapper">
+            <div class="listFriendDialog">
+                <p class="listFriendDialog-title">friend list</p>
+                <ul class="friendList" id="friendList">
+                    <li class="friendElement">
+                        <p class="friendId">dyonglove@gmail.com</p>
+                        <button class="cancelFriendShipButton">delete friend</button>
+                        <div class="elementLoader"></div>
+                    </li>
+                </ul>
+                <div class="friendMenuDialog-button" id="listCancelButton">cancel</div>
+            </div>
+        </div>
+        <div class="DialogWrapper depth2" id="listFriendRequestDialogWrapper">
+            <div class="listFriendRequestDialog">
+                <p class="listFriendRequestDialog-title">friend request list</p>
+                <ul class="friendRequestList" id="friendRequestList">
+                    <li class="requestElement">
+                        <p class="requestFriendId">dyonglove@gmail.com</p>
+                        <button class="FriendShipButton" value="1">accept</button>
+                        <button class="FriendShipButton" value="0">reject</button>
+                        <div class="elementLoader"></div>
+                    </li>
+                </ul>
+                <div class="friendMenuDialog-button" id="listFriendCloseButton">close</div>
+            </div>
+        </div>
+        <div class="DialogWrapper depthTop" id="refreshTokenDialogWrapper">
+            <div class="refreshTokenDialog">
+                <p>updating token.</p>
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./webScripts/main.js"></script>
+</html>
