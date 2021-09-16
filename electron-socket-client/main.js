@@ -7,8 +7,11 @@ const url = require('url');
 const path = require('path');
 const io = require('socket.io-client');
 const axios = require('axios');
+//electronexampleserver.au-syd.mybluemix.net
+//electronexampleserver.au-syd.mybluemix.net
+//127.0.0.1:${port}
 const httpInstance = axios.create({
-  baseURL: `http://127.0.0.1:${port}`
+  baseURL: `http://electronexampleserver.au-syd.mybluemix.net`
 });
 
 const handler_manager =require('./handler_manager');
@@ -110,7 +113,9 @@ const displayWaitDialog = (event, message) => {
   waitDialog.once('ready-to-show', () => {
     win.hide();
     waitDialog.show();
-    const socketURL = `ws://127.0.0.1:${port}`
+    //electronexampleserver.au-syd.mybluemix.net
+    //127.0.0.1:${port}
+    const socketURL = `ws://electronexampleserver.au-syd.mybluemix.net`
     const socketOptions = {
       transports: ['websocket'],
       forceNew: true,

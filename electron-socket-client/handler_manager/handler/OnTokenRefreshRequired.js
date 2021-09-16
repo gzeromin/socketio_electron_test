@@ -2,7 +2,9 @@
 
 module.exports = (socket, win, TokenManager) => {
   const axios = require('axios');
-  const httpInstance = axios.create({baseURL: 'http://127.0.0.1:5003'});
+  //electronexampleserver.au-syd.mybluemix.net
+  //http://127.0.0.1:5003
+  const httpInstance = axios.create({baseURL: 'http://electronexampleserver.au-syd.mybluemix.net'});
 
   const tokenRequest = () => {
     const token = TokenManager.getToken();

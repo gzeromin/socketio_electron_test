@@ -5,6 +5,20 @@ exports.InitMongoDB = (env, mongoose) => {
     /**
      * Cloud
      */
+     const connectURL = env.MONGO_URI;
+     const options = {
+       connectTimeoutMS: 4000,
+       keepAlive: true,
+       ha: true,
+       autoReconnect: true,
+       reconnectTries: 30,
+       useNewUrlParser: true
+     }
+     mongoose.connect(connectURL, options);
+     const db = mongoose.connection;
+     db.on('open', () => {
+       console.log('db connected');
+     })
   } else {
     /**
      * Local
@@ -15,7 +29,8 @@ exports.InitMongoDB = (env, mongoose) => {
       keepAlive: true,
       ha: true,
       autoReconnect: true,
-      reconnectTries: 30
+      reconnectTries: 30,
+      useNewUrlParser: true
     }
     mongoose.connect(connectURL, options);
     const db = mongoose.connection;
